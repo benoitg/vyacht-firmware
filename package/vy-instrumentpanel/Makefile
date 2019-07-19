@@ -13,9 +13,13 @@ PKG_NAME:=vy-instrumentpanel
 PKG_VERSION:=0.0.1
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
-#PKG_SOURCE_URL:=http://download-mirror.savannah.gnu.org/releases/gpsd
-#PKG_MD5SUM:=53a88f24a0973d23427e82e9a8914f19
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
+
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/vyacht/instrumentpanel.git
+PKG_MIRROR_HASH:=05c2583b7279bf05a4e8ae93afade4aa11dce9151d0bd05ba54fd9ed083f1125
+PKG_SOURCE_DATE:=2016-04-06
+PKG_SOURCE_VERSION:=34fed778b899c6fbb3dc25b995511999d6906718
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -39,12 +43,19 @@ endef
 define Package/vy-instrumentpanel/install
 	$(INSTALL_DIR) $(1)/www
 	$(INSTALL_DIR) $(1)/www/dist
-	$(INSTALL_DIR) $(1)/www/css
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/instrumentpanel.html $(1)/www/instrumentpanel.html
+	$(INSTALL_DIR) $(1)/www/dist/css
+	$(INSTALL_DIR) $(1)/www/dist/fonts
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/index.html $(1)/www/instrumentpanel.html
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/ui.js $(1)/www/dist/ui.js
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/vendor.js $(1)/www/dist/vendor.js
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/css/react-grid-layout.css $(1)/www/css/react-grid-layout.css
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/css/react-resizable.css $(1)/www/css/react-resizable.css
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/css/bootstrap.min.css $(1)/www/dist/css/bootstrap.min.css
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/css/font-awesome.css $(1)/www/dist/css/font-awesome.css
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/fontawesome-webfont.eot $(1)/www/dist/fonts/fontawesome-webfont.eot
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/fontawesome-webfont.svg $(1)/www/dist/fonts/fontawesome-webfont.svg
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/fontawesome-webfont.ttf $(1)/www/dist/fonts/fontawesome-webfont.ttf
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/fontawesome-webfont.woff $(1)/www/dist/fonts/fontawesome-webfont.woff
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/fontawesome-webfont.woff2 $(1)/www/dist/fonts/fontawesome-webfont.woff2
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dist/fonts/FontAwesome.otf $(1)/www/dist/fonts/FontAwesome.otf
 endef
 
 $(eval $(call BuildPackage,vy-instrumentpanel))

@@ -13,11 +13,11 @@ PKG_NAME:=font-awesome
 PKG_VERSION:=4.5.0
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
-#PKG_SOURCE_URL:=http://download-mirror.savannah.gnu.org/releases/gpsd
-#PKG_MD5SUM:=53a88f24a0973d23427e82e9a8914f19
+PKG_SOURCE:=v$(PKG_VERSION).zip
+PKG_SOURCE_URL:=https://github.com/FortAwesome/Font-Awesome/archive
+PKG_HASH:=c6379a0215a298d11c3f55ed574c7f8c3bc5af196ebe0dac5b885d1e47105712
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/Font-Awesome-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -32,7 +32,6 @@ define Package/font-awesome/description
 endef
 
 define Build/Prepare
-	mkdir -p $(PKG_BUILD_DIR)
 	unzip $(DL_DIR)/$(PKG_SOURCE) -d $(BUILD_DIR)
 endef
 
