@@ -11,11 +11,12 @@ PKG_NAME:=vy-gpsd
 PKG_VERSION:=3.11
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
-#PKG_SOURCE_URL:=http://download-mirror.savannah.gnu.org/releases/gpsd
-#PKG_MD5SUM:=53a88f24a0973d23427e82e9a8914f19
-
-PKG_BUILD_DEPENDS:=libncurses libusb-1.0 libuuid
+#PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/benoitg/gpsd.git
+PKG_MIRROR_HASH:=67157f06a26c6659c9490ae6b95cfc8b70592fd016e100f6f5530f1ecd2711f4
+PKG_SOURCE_DATE:=2019-07-18
+PKG_SOURCE_VERSION:=4a62db17cb5bcc7cb2d3a02a88d51b8d471857f6
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/scons.mk
