@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp /www/index-vyacht.html /www/index.html 
+
+exit 0
