@@ -45,7 +45,7 @@ define Package/vy-web/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/usr/lib/lua/vyacht/
 
-	$(INSTALL_DATA) ./files/index.html $(1)/www/index.html
+	$(INSTALL_DATA) ./files/index.html $(1)/www/index-vyacht.html
 	$(INSTALL_DATA) ./files/test.html $(1)/www/test.html
 	$(INSTALL_BIN)  ./files/vyacht.lua $(1)/www/vyacht.lua
 	$(INSTALL_BIN)  ./files/test-vyacht.lua $(1)/www/
